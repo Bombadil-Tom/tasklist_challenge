@@ -10,6 +10,7 @@ class TaskList extends Component {
       detail: false
     };
     this.showDetail = this.showDetail.bind(this);
+    this.hideDetail = this.hideDetail.bind(this);
   }
 
   componentDidMount() {
@@ -22,12 +23,20 @@ class TaskList extends Component {
     this.setState({ detail: name });
   }
 
+  hideDetail() {
+    this.setState({ detail: false });
+  }
+
   render() {
     const { detail, data } = this.state;
     return (
       <div>
         {!detail && <GroupList data={data} showDetail={this.showDetail} />}
-        {detail && <div>{detail}</div>}
+        {detail && (
+          <div>
+            {detail} <button onClick={this.hideDetail}>ALL GROUPS</button>
+          </div>
+        )}
       </div>
     );
   }
