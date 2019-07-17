@@ -34,7 +34,26 @@ class TaskList extends Component {
     const taskGroup = data.filter(task => task.group === detail);
 
     const tasks = taskGroup.map((task, idx) => {
-      return <Task title={task.task} key={idx} />;
+      let locked = false;
+      const { dependencyIds } = task;
+
+      if (dependencyIds.length) {
+        dependencyIds.forEach(dependency => {
+          const currentD = data.filter(task => task.id === dependency)[0];
+
+          if (currentD.completedAt === null) locked = true;
+        });
+      }
+
+      return (
+        <Task
+          title={task.task}
+          key={idx}
+          locked={locked}
+          completed={task.completedAt}
+          id={task.id}
+        />
+      );
     });
 
     return tasks;
