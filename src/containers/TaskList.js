@@ -13,6 +13,7 @@ class TaskList extends Component {
     };
     this.showDetail = this.showDetail.bind(this);
     this.hideDetail = this.hideDetail.bind(this);
+    this.changeTaskState = this.changeTaskState.bind(this);
   }
 
   componentDidMount() {
@@ -27,6 +28,20 @@ class TaskList extends Component {
 
   hideDetail() {
     this.setState({ detail: false });
+  }
+
+  changeTaskState(e) {
+    const { id, checked } = e.target;
+    const { data } = this.state;
+
+    const newData = data.map(task => {
+      if (task.id === parseInt(id, 10)) {
+        const newState = checked ? new Date() : null;
+        return { ...task, completedAt: newState };
+      } else return task;
+    });
+
+    this.setState({ data: newData });
   }
 
   renderTasks() {
@@ -52,6 +67,7 @@ class TaskList extends Component {
           key={idx}
           locked={locked}
           completed={task.completedAt}
+          onChange={this.changeTaskState}
           id={task.id}
         />
       );
