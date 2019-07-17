@@ -1,11 +1,16 @@
 import React from "react";
 
+import Checkbox from "components/Checkbox";
+
 const Task = ({ title, locked, completed, id }) => {
-  const lock = locked ? "Locked" : "Open";
-  const done = completed ? "completed" : "notCompleted";
   return (
     <div>
-      {lock} {title} {done}
+      {locked ? (
+        <img src="" alt="locked symbol" />
+      ) : (
+        <Checkbox checked={completed ? true : false} id={id} />
+      )}{" "}
+      {title}
     </div>
   );
 };

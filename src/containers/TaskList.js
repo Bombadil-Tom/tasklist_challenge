@@ -2,6 +2,7 @@ import React, { Component } from "react";
 
 import GroupList from "containers/GroupList";
 import Task from "containers/Task";
+import Button from "components/Button";
 
 class TaskList extends Component {
   constructor(props) {
@@ -66,7 +67,7 @@ class TaskList extends Component {
         {!detail && <GroupList data={data} showDetail={this.showDetail} />}
         {detail && (
           <div>
-            {detail} <button onClick={this.hideDetail}>ALL GROUPS</button>
+            {detail} <Button title="ALL GROUPS" onClick={this.hideDetail} />
             {this.renderTasks()}
           </div>
         )}
