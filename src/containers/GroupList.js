@@ -16,13 +16,24 @@ class GroupList extends Component {
     return groups;
   }
 
+  onClick(name) {
+    this.props.showDetail(name);
+  }
+
   renderGroups() {
     const sortedData = this.sortData();
 
     const groups = [];
 
     for (let key in sortedData) {
-      groups.push(<Group tasks={sortedData[key]} key={key} title={key} />);
+      groups.push(
+        <Group
+          tasks={sortedData[key]}
+          key={key}
+          title={key}
+          onClick={this.onClick.bind(this, key)}
+        />
+      );
     }
 
     return groups;
