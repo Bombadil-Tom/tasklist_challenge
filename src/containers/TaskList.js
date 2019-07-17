@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 import GroupList from "containers/GroupList";
+import Task from "containers/Task";
 
 class TaskList extends Component {
   constructor(props) {
@@ -27,6 +28,18 @@ class TaskList extends Component {
     this.setState({ detail: false });
   }
 
+  renderTasks() {
+    const { data, detail } = this.state;
+
+    const taskGroup = data.filter(task => task.group === detail);
+
+    const tasks = taskGroup.map((task, idx) => {
+      return <Task title={task.task} key={idx} />;
+    });
+
+    return tasks;
+  }
+
   render() {
     const { detail, data } = this.state;
     return (
@@ -35,6 +48,7 @@ class TaskList extends Component {
         {detail && (
           <div>
             {detail} <button onClick={this.hideDetail}>ALL GROUPS</button>
+            {this.renderTasks()}
           </div>
         )}
       </div>
