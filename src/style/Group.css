@@ -3,6 +3,7 @@
   border-bottom: 1px #cbcbcb solid;
   padding-bottom: 15px;
   padding-top: 15px;
+  font-weight: bold;
 }
 
 .group-icon {
@@ -14,4 +15,5 @@
   font-size: 22px;
   color: #cbcbcb;
   padding-top: 5px;
+  font-weight: lighter;
 }
