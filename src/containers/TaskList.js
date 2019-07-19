@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import GroupList from "containers/GroupList";
 import Task from "containers/Task";
 import Button from "components/Button";
+import Heading from "components/Heading";
 
 class TaskList extends Component {
   constructor(props) {
@@ -31,12 +32,12 @@ class TaskList extends Component {
   }
 
   changeTaskState(e) {
-    const { id, checked } = e.target;
+    const { id } = e.target;
     const { data } = this.state;
 
     const newData = data.map(task => {
       if (task.id === parseInt(id, 10)) {
-        const newState = checked ? new Date() : null;
+        const newState = !task.completedAt ? new Date() : null;
         return { ...task, completedAt: newState };
       } else return task;
     });
@@ -79,13 +80,21 @@ class TaskList extends Component {
   render() {
     const { detail, data } = this.state;
     return (
-      <div>
-        {!detail && <GroupList data={data} showDetail={this.showDetail} />}
-        {detail && (
+      <div className="task-list">
+        {detail ? (
           <div>
-            {detail} <Button title="ALL GROUPS" onClick={this.hideDetail} />
+            <div className="heading">
+              <Heading text={detail} />
+              <Button
+                title="all groups"
+                onClick={this.hideDetail}
+                className={"back-btn"}
+              />
+            </div>
             {this.renderTasks()}
           </div>
+        ) : (
+          <GroupList data={data} showDetail={this.showDetail} />
         )}
       </div>
     );

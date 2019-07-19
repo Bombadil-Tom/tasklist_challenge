@@ -1,0 +1,19 @@
+.task-item {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px grey solid;
+  display: flex;
+}
+
+.task-icon {
+  width: 25px;
+  padding-right: 15px;
+}
+
+.task-completed {
+  text-decoration: line-through;
+}
+
+.task-locked {
+  color: #9b9b9b;
+}

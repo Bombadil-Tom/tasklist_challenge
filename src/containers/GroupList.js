@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 import Group from "containers/Group";
+import Heading from "components/Heading";
 
 class GroupList extends Component {
   sortData() {
@@ -42,7 +43,9 @@ class GroupList extends Component {
   render() {
     return (
       <div>
-        Things To Do
+        <div className="heading">
+          <Heading text="Things To Do" />
+        </div>
         <div>{this.renderGroups()}</div>
       </div>
     );

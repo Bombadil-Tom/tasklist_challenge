@@ -1,0 +1,17 @@
+.group {
+  display: flex;
+  border-bottom: 1px #cbcbcb solid;
+  padding-bottom: 15px;
+  padding-top: 15px;
+}
+
+.group-icon {
+  padding-right: 15px;
+}
+
+.group-status {
+  text-transform: uppercase;
+  font-size: 22px;
+  color: #cbcbcb;
+  padding-top: 5px;
+}

@@ -1,0 +1,9 @@
+body {
+  font-size: 28px;
+  font-family: Arial;
+}
+
+.task-list {
+  max-width: 500px;
+  margin: auto;
+}

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import "./App.css";
+import "style/App.css";
 import TaskList from "containers/TaskList";
 
 export default class App extends Component {
