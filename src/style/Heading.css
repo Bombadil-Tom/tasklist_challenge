@@ -4,4 +4,5 @@
   padding-top: 25px;
   border-bottom: 1px #cbcbcb solid;
   display: flex;
+  justify-content: space-between;
 }
