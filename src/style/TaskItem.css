@@ -1,0 +1,15 @@
+.one-task {
+  display: flex;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #cbcbcb;
+  font-weight: bold;
+}
+
+.task-locked {
+  color: #9b9b9b;
+}
+
+.task-completed {
+  text-decoration: line-through;
+}
